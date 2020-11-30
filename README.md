@@ -1,2 +1,2 @@
 # form-mailer
-A template for a React.js based frontend and a PHP based mailer landing page. 
+A  landing page template for a React.js frontend and a PHP backend includes PHPMailer. 
