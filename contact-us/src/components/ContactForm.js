@@ -43,18 +43,34 @@ class ContactForm extends Component {
 
         var xhr = new XMLHttpRequest();
 
+        //Server Responds Callback
         xhr.addEventListener('load', () => {
-            console.log(xhr.responseText)
+            //console.log(xhr.responseText)
+            this.setState({emailStatus: xhr.responseText})
         });
+
         var uri = `http://localhost:80/sendemail/index.php?sendto=${email}&firstName=${firstName}&lastName=${lastName}&phone=${phone}&street=${street}&number=${number}&city=${city}&postalCode=${postalCode}&utm_source=test&utm_medium=project&ref=10`
 
         xhr.open('POST', uri);
         xhr.onreadystatechange = this.handleChange;
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+        // send the request
         xhr.send(uri);
+        console.log(this.state);
 
+        // reset the fields
+        this.setState({
+            firstName: '',
+            lastName: '',
+            phone: '',
+            email: '',
+            street: '',
+            number: '',
+            city: '',
+            postalCode: ''
+        });
         e.preventDefault();
-
     }
 
     render() {
@@ -66,12 +82,16 @@ class ContactForm extends Component {
             street,
             number,
             city,
-            postalCode
+            postalCode,
+            emailStatus
         } = this.state
 
         return (
-            <div className="formBlock">
-                <Form className='form' onSubmit={this.submitForm}>
+            <div className="formBlock" onSubmit={this.submitForm}>
+                {emailStatus
+                    ? emailStatus
+                    : null}
+                <Form className='form'>
                     <FormGroup>
                         <h2>לקבלת דוגמית חינם</h2>
                         <h2>מלאו את הפרטים:</h2>
