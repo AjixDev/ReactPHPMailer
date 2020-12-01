@@ -50,7 +50,7 @@ if ($_SERVER['HTTP_REFERER'] === "http://localhost:3000/" || "http://localhost:8
         // Content
         $mail->isHTML(true); // Set email format to HTML
         $mail->Subject = 'React PHP,  Roy Aji - משימת הכרות';
-        $mail->Body = "<p dir='rtl'>מייל " . $email . "<br/>" .
+        $mail->Body = "<p dir='rtl'>היי נועה,<br/> ראשית תודה על הארכת הזמן, שנית אני חייב להודות שעדיין לא סיימתי ממשברמה מושלמת הכול הפרוייקט עומד עם העיצוב של המובייל קודם והלוגיקה של שליחה עובדת כפי שאת שמה לב.<br/>מה שנותר לי להשלים הוא את העיצוב לטאבלט ולדסקטופ וכמו כן את הואלידציה.<br/>אשלח במהלך היום.<br/>שוב המון תודה<br/><br/>מייל " . $email . "<br/>" .
             "שם פרטי " . $firstName . "<br/>" .
             "שם משפחה " . $lastName . "<br/>" .
             "נייד " . $phone . "<br/>" .
