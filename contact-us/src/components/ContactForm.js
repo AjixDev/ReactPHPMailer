@@ -49,7 +49,7 @@ class ContactForm extends Component {
             this.setState({emailStatus: xhr.responseText})
         });
 
-        var uri = `http://localhost:80/sendemail/index.php?sendto=${email}&firstName=${firstName}&lastName=${lastName}&phone=${phone}&street=${street}&number=${number}&city=${city}&postalCode=${postalCode}&utm_source=test&utm_medium=project&ref=10`
+        var uri = `http://localhost:80/sendemail/index.php?&sendto=${email}&firstName=${firstName}&lastName=${lastName}&phone=${phone}&street=${street}&number=${number}&city=${city}&postalCode=${postalCode}&utm_source=test&utm_medium=project&ref=10`
 
         xhr.open('POST', uri);
         xhr.onreadystatechange = this.handleChange;
@@ -88,13 +88,14 @@ class ContactForm extends Component {
 
         return (
             <div className="formBlock" onSubmit={this.submitForm}>
-                {emailStatus
-                    ? emailStatus
-                    : null}
+
                 <Form className='form'>
                     <FormGroup>
                         <h2>לקבלת דוגמית חינם</h2>
                         <h2>מלאו את הפרטים:</h2>
+                        {emailStatus
+                            ? emailStatus
+                            : null}
                     </FormGroup>
                     <FormGroup>
                         <FormText
